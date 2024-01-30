@@ -5,6 +5,7 @@
         <div class="nav-links">
             <router-link :to="{ name: 'inicio' }" class="nav-link">Inicio</router-link>
             <router-link :to="{ name: 'formulario'}" class="nav-link">Formulario</router-link>
+            <router-link :to="{ name: 'paginacion'}" class="nav-link">Paginacion</router-link>
             <div class="nav-link disabled">Disabled</div>
         </div>
     </div>

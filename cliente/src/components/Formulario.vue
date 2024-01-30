@@ -82,12 +82,36 @@ export default {
     },
     methods: {
         onSubmit() {
-            // Realizar acciones al enviar el formulario
+            // Validar los campos antes de enviar el formulario
+            if (this.validateForm()) {
+                // Realizar acciones al enviar el formulario
+                console.log('Formulario válido. Enviar datos...');
+            }
         },
         onReset() {
-            // Realizar acciones al restablecer el formulario
+            this.$refs['formulario'].reset();
+        },
+        validateForm() {
+            // Validar los campos requeridos y otros criterios específicos
+            if (!this.form.nombre.trim() || !this.form.apellidoPaterno.trim()) {
+                // Mostrar un mensaje de error o realizar acciones necesarias
+                alert('Nombre y apellido paterno son obligatorios.');
+                return false;
+            }
+            // Validar tamaño de la fotografía
+            const fileSizeInMB = this.form.foto ? this.form.foto.size / (1024 * 1024) : 0;
+            if (!this.form.foto || fileSizeInMB > 3) {
+                // Mostrar una alerta si el archivo pesa más de 3 MB
+                if (fileSizeInMB > 3) {
+                    alert('La fotografía debe tener un tamaño menor a 3 MB.');
+                }
+
+                // Mostrar un mensaje de error o realizar acciones necesarias
+                console.error('La fotografía es obligatoria y debe tener un tamaño menor a 3 MB.');
+                return false;
+            }
+            return true;
         },
     },
 };
 </script>
-  

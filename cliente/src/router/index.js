@@ -14,6 +14,11 @@ const routes=[
         component: () => import('../components/Formulario.vue')
     },
     {
+        path:'/paginacion',
+        name: 'paginacion',
+        component: () => import('../components/reservations/Persona.vue')
+    },
+    {
         path:'*',
         component: () => import('../view/Error.vue')
     },
