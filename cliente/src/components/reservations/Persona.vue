@@ -12,7 +12,7 @@
     </b-container>
 </template>
   
-<script>
+<script> 
 import personaService from "../services/Persona.js"; // Ajusta la ruta según tu estructura de archivos
 
 export default {
